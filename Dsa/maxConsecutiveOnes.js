@@ -1,8 +1,6 @@
 let arr = [1, 1, 1, 0, 1, 0, 1, 0, 1,]
 console.log(countOnes(arr));
 
-
-
 function countOnes(arr){
     let max = 0
     let c = 0
