@@ -103,7 +103,54 @@ const slicedArray = arr1.slice(0, 1)
 //* .sort() -> sorts the Array
 const numArray = [1,5,4,6,7,8]
 numArray.sort()
-console.log(numArray);
+// console.log(numArray);
+
+
+
+
+//* flat() -> creates a new Array with all sub-Array
+//* concatenated into it & returns the new Array
+const nestedArray = [1, 2, [3, 4], 5, [6]]
+const newArray = nestedArray.flat()//def value : 1
+const newArrayDepth = nestedArray.flat(Infinity)
+// console.log(newArray);
+// o/p -> [ 1, 2, 3, 4, 5, 6 ]
+
+
+
+
+//* .toString() -> converts arr to String
+const arr4 = [1, 2, 'a', false]
+//nested array can also be represented in stringForm.
+const stringForm = arr4.toString()
+// console.log(stringForm);
+
+
+
+
+//* .join() -> joins all the elements of an array intro a single String
+const joinedArr4 = arr4.join('-')
+// () ==> separator -> can use anything
+//console.log(joinedArr4);
+
+
+
+
+
+//* ... -> spread operator
+   // copying
+   // iteration 
+   // concatenation
+
+const arr5 = [1, 2, 3, 4, 5 ]
+const arr6 = [10, 12, 14, 16,]
+
+
+const copyArray = [...arr5]
+// console.log(arr5 === copyArray);// false
+
+const concatenatedArray = [...arr5, ...arr6]
+//console.log(concatenatedArray);
 
 
 
