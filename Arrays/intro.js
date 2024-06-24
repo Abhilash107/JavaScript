@@ -214,8 +214,6 @@ arr8.forEach( (key) =>{
 
 
 
-
-
 //* .map(callback) -> creates a new array by 
 //*  applying function each element
 //* doesn't change the original array
