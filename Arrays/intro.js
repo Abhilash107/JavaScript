@@ -138,29 +138,130 @@ const joinedArr4 = arr4.join('-')
 
 
 //* ... -> spread operator
-   // copying
-   // iteration 
-   // concatenation
-
+   
+   
+   
+//1. copying
 const arr5 = [1, 2, 3, 4, 5 ]
 const arr6 = [10, 12, 14, 16,]
-
 
 const copyArray = [...arr5]
 // console.log(arr5 === copyArray);// false
 
+
+//2. concatenation
 const concatenatedArray = [...arr5, ...arr6]
 //console.log(concatenatedArray);
 
+const arr7 = [...arr6, 90]
+//console.log(arr7);
+
+
+
+//3. iteration 
+const nums = [1, 2, 3]
+
+function sum(a, b, c){
+   return a + b + c
+}
+const res = sum(...nums)
+//console.log(res);
+
+
+const maxNum = Math.max(...nums)
+// console.log(maxNum);
+
+
+
+
+//* Destructuring Array
+
+const array = [1, 2, 3, 4]
+const[a, b, c, d] = array
+// console.log(a);
+// console.log(b);
+// console.log(c);
+// console.log(d);
+
+// we can skip the elements
+const [A, , C]= array
+// console.log(A);
+// console.log(C);
+
+const arr8 = [1, 2, 3, 4, 5]
+const [first, second, ...rest] = arr8
+// console.log(first);//1
+// console.log(second);//2
+// console.log(rest);// [3, 4, 5]
+
+
+
+
+//* for...of loop -> in Objects
+
+for (const element of arr8) {
+   //console.log(element);
+}
+
+
+
+
+//*forEach() method -> built-in array method
+
+arr8.forEach( (key) =>{
+   //console.log(key);
+} )
+
+
+
+
+
+//* .map(callback) -> creates a new array by 
+//*  applying function each element
+//* doesn't change the original array
+
+const arr9 = [1, 2, 3, 4]
+const doubled = arr9.map( (num) => num * 2 )
+//console.log(doubled);
+
+
+
+
+
+//* .filter(callback) -> creates a new array
+//*  returns the new array containing only the
+//*  elements of org array that satisfy the
+//*  condition specified in the callback function
+    //? All values
+const evenNums = arr9.filter((num) => num % 2 === 0 )
+console.log(evenNums);// [ 2, 4 ]
+
+;
 
 
 
 
 
 
+//* .some(callback) -> checks whether at least one element in the array passes the checks
+//* returns true, else false
+//* doesn't change the original Array
+   //? Boolean value
+const arr10 = [1, 2, 3, 4, 5]
+const hasEven = arr10.some( (num) => num > 10 )
+// console.log(hasEven);
 
 
 
+
+//* .find(callback) -> returns the first element
+//* that satisfies the callback
+   //? first value
+const found = arr10.find( (num) => num <= 3 )
+console.log(found);// 1, as it returns the first element
+
+const index = arr10.findIndex((num) => num <= 3  )
+console.log(index)// find index of find() result
 
 
 
