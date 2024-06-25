@@ -1,6 +1,6 @@
 let arr = [1,2,3,4,5]
 const res = findNums(arr, 7)
-console.log(res);
+console.log(res)
 
 //* sorted case
 function findNums(arr, k){
@@ -21,3 +21,4 @@ function findNums(arr, k){
     return false
 
 }
+
