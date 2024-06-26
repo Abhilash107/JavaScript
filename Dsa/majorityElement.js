@@ -20,8 +20,6 @@ function majority(arr){
             return num
         }
         
-            
-        
         
     }
     return -1
