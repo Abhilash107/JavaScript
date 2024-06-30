@@ -25,10 +25,38 @@ class main{
             temp = temp.next
         }
     }
+
+    search(head, target){
+        let temp = head
+        while(temp != null){
+            if(temp.data === target){
+                return true
+            }
+            temp = temp.next
+        }
+        return false
+    }
+
+    length(head){
+        let count = 0
+        let temp = head
+        while(temp != null){
+            count++
+            temp = temp.next
+        }
+        return count
+    }
     
 }
 
-let arr = [1, 2, 3, 4]
+let arr = [1, 2, 3, 4, 5, 6, 7, 8]
 const obj = new main()
-const node = obj.create(arr)// getting the head
-obj.traverse(node)//traverse
+const head = obj.create(arr)// getting the head
+
+//obj.traverse(head)//traverse
+
+const res = obj.search(head, 3)
+//console.log(res);
+
+const length = obj.length(head)
+console.log(length);
