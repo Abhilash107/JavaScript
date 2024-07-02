@@ -27,6 +27,15 @@ class main{
         }
     }
 
+    length(head){
+        let c =0
+        while(head != null){
+            c++
+            head = head.next
+        }
+        return c
+    }
+
     deleteHead(head){
         if(head === null || head.next === null) return null
         let prev = head
@@ -98,9 +107,77 @@ class main{
         return head
     }
 
-    insertAtHead(node){
-           
+    insertAtHead(head, value){
+        let node = new Node(value)
+        if(head === null){
+            return node
+        }
 
+        node.next = head
+        head.back = node
+        head = node
+
+        return head
+    }
+
+    insertBeforeTail(head, value){
+        if(head.next === null){
+            this.insertAtHead(head, value)
+        }
+
+        let node = new Node(value)
+
+        let temp = head
+        while(temp.next !== null){
+            temp =temp.next
+        }
+        let prev = temp.back
+        node.next = temp
+        node.back = prev
+        prev.next = node
+        temp.back = node
+        return head
+    }
+
+    insertBeforeKthPosition(head, value, k){
+        if (k > this.length(head) || k <= 0){
+            return console.error('Enter a valid position!');
+        }
+        if(k === 1){
+            this.insertAtHead(head, value)
+        }
+        let temp = head 
+        let cnt = 0
+        while(temp !== null){
+            cnt++
+            if(cnt === k) break
+
+            temp = temp.next
+        }
+        let prev = temp.back
+
+        let node = new Node(value)
+        node.next = temp
+        node.back = prev
+        prev.next = node
+        temp.back = node
+        return head
+
+    }
+
+    insertBeforeNode(head, value, node){
+        
+        let prev = node.back
+        if(head === node){
+            let val = value
+            return this.insertAtHead(head, val)
+        }
+        let newNode = new Node(value)
+        newNode.next = node
+        newNode.back = prev
+        prev.next = newNode
+        node.back = newNode
+        return head
     }
 }
 
@@ -119,3 +196,18 @@ let head = obj.creation(arr)
 
 // head = obj.deleteNode(head.next.next.next)
 // obj.print(head)
+
+// head = obj.insertAtHead(head, 20)
+// obj.print(head)
+
+
+// head = obj.insertBeforeTail(head, 20)
+// obj.print(head)
+
+// head = obj.insertBeforeKthPosition(head, 100, 0)
+// obj.print(head)
+head = obj.insertBeforeNode(head, 68, head.next)
+obj.print(head)
+
+
+
