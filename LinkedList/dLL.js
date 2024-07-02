@@ -179,6 +179,49 @@ class main{
         node.back = newNode
         return head
     }
+
+    reverse(head){
+        // Function to reverse a doubly linked list
+function reverseDLL(head) {
+    // Check if the list is empty
+    // or has only one node
+    if (head === null || head.next === null) {
+        // No change is needed;
+        // return the current head
+        return head;
+    }
+    
+    // Initialize a pointer to
+    // the previous node
+    let prev = null; 
+    
+    // Initialize a pointer
+    // to the current node
+    let current = head; 
+
+    // Traverse the linked list
+    while (current !== null) {
+        // Store a reference to
+        // the next node
+        let next = current.next;
+
+        // Swap the previous
+        // and next pointers
+        current.next = prev;
+        current.prev = next;
+
+        // Move to the next node
+        // in the original list
+        prev = current;
+        current = next;
+    }
+
+    // The final node in the original
+    // list becomes the new head after reversal
+    return prev;
+}
+
+    }
 }
 
 let arr = [1, 2, 3, 4, 5]
@@ -206,7 +249,12 @@ let head = obj.creation(arr)
 
 // head = obj.insertBeforeKthPosition(head, 100, 0)
 // obj.print(head)
-head = obj.insertBeforeNode(head, 68, head.next)
+
+
+// head = obj.insertBeforeNode(head, 68, head.next)
+// obj.print(head)
+
+head = obj.reverse(head)
 obj.print(head)
 
 
