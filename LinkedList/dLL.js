@@ -77,10 +77,30 @@ class main{
         }  
         prev.next = front
         front.back = prev
-        temp.back = null
-        temp.next = null
+        temp.back = temp.next = null
+        
 
         return head
+    }
+
+    deleteNode(node){
+        //node !== head
+        let prev = node.back
+        let front = node.next
+        if(front === null){
+            prev.next = null
+            return head
+        }
+
+        prev.next = front
+        front.back = prev
+        node.back = node.next = null
+        return head
+    }
+
+    insertAtHead(node){
+           
+
     }
 }
 
@@ -94,5 +114,8 @@ let head = obj.creation(arr)
 
 //head = obj.deleteTail(head)
 
-head = obj.deleteKthElement(head, 2)
-obj.print(head)
+// head = obj.deleteKthElement(head, 2)
+// obj.print(head)
+
+// head = obj.deleteNode(head.next.next.next)
+// obj.print(head)
