@@ -153,12 +153,43 @@ function lengthOfLoop(head){
 
 }
 
+function isPalindrome(head){
+    let slow = head
+    let fast = head
+    // to choose m1 not m2, check fast.next.next !== null
+    while(fast.next !== null && fast.next.next !== null){
+        slow = slow.next
+        fast = fast.next.next
+    }
+    
+    let newNode = reverse(slow.next)
 
-function reverseR(){
+    let first = head
+    let second = newNode
+
+    while(second !== null){
+        if(first.data  !== second.data){
+            //* if not, then reverse back to the original list
+            reverse(newNode)
+            return false
+        }
+
+        first = first.next
+        second = second.next
+    }
+    //* if not, then reverse back to the original list
+    reverse(newNode)
+    return true
+
 
 }
 
-let arr = [1, 2, 3, 4, 5, 6]
+function oddEvenArrange(head){
+
+}
+
+
+let arr = [1, 2]
 
 let head = create(arr)
 //print(head)
@@ -174,5 +205,7 @@ const startLoop = startingOfLoop(head)
 //console.log(startLoop);
 
 const length = lengthOfLoop(head)
-console.log(startLoop);
+// console.log(startLoop);
 
+const res = isPalindrome(head)
+console.log(res);
