@@ -185,17 +185,53 @@ function isPalindrome(head){
 }
 
 function oddEvenArrange(head){
+    let odd = head
+    let even = head.next
 
+    let evenHead = head.next// store the evenHead
+    //* as even is always after odd so.....
+    while(even !== null && even.next !== null){
+        odd.next = odd.next.next
+        even.next = even.next.next
+
+        odd = odd.next
+        even = even.next
+    }
+
+    odd.next = evenHead
+
+    return head
+}
+
+function deleteMidNode(head){
+    let slow = head
+    let fast = head
+    // to skip one slow-step
+    fast = fast.next.next
+
+    while(fast !== null && fast.next !== null){
+        slow = slow.next
+        fast = fast.next.next
+    }
+    slow.next = slow.next.next//unlink and link to next
+    return head
 }
 
 
-let arr = [1, 2]
+
+
+
+
+
+
+let arr = [1, 2, 3, 4, 5]
 
 let head = create(arr)
 //print(head)
 let mid = middleNode(head)
 //console.log(mid.data);
-head = reverse(head)
+
+//head = reverse(head)
 //print(head)
 
 // const res = checkLoop(head)
@@ -208,4 +244,10 @@ const length = lengthOfLoop(head)
 // console.log(startLoop);
 
 const res = isPalindrome(head)
-console.log(res);
+//console.log(res);
+
+// head = oddEvenArrange(head)
+// print(head)
+
+// head = deleteMidNode(head)
+// print(head)
