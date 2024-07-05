@@ -218,13 +218,65 @@ function deleteMidNode(head){
 }
 
 
+//* imp
+function sort(head){
+    if(head === null || head.next === null) return head
+
+
+    let mid = middleNodeSpecial(head)
+    let leftHead = head
+    let rightHead = mid.next
+
+    mid.next = null
+
+    leftHead = sort(leftHead)
+    rightHead = sort(rightHead)
+
+    return merge(leftHead, rightHead)
+
+}
+
+function middleNodeSpecial(head){
+    let slow = head
+    let fast = head.next
+
+    while(fast !== null && fast.next !== null){
+        slow = slow.next
+        fast = fast.next.next
+    }
+    return slow
+}
+
+function merge(left, right){
+    let newNode = new Node(-1)
+    let temp = newNode
+    while(left !== null && right !== null){
+
+        if(left.data < right.data){
+            temp.next = left
+            temp = left
+            left = left.next
+        }
+        else{
+            temp.next = right
+            temp = right
+            right = right.next
+        }
+
+    }
+
+    if(left) temp.next = left
+    else temp.next = right
+
+    return newNode.next
+}
+    
 
 
 
 
 
-
-let arr = [1, 2, 3, 4, 5]
+let arr = [1, 4, 3, 2, 5]
 
 let head = create(arr)
 //print(head)
@@ -251,3 +303,9 @@ const res = isPalindrome(head)
 
 // head = deleteMidNode(head)
 // print(head)
+
+
+head = sort(head)
+print(head)
+
+
