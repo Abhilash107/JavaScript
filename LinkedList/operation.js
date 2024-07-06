@@ -270,9 +270,33 @@ function merge(left, right){
 
     return newNode.next
 }
+
+function addOne(head){
+    let carry = helper(head)
+
+    if(carry === 1){
+        let newNode = new Node(1)
+        newNode.next = head
+        return newNode
+    }
+    return head
+}
+
+//*imp
+function helper(temp){
+    if(temp == null){
+        return 1
+    }
+
+    let carry = helper(temp.next)
+    temp.data += carry
+    if(temp.data < 10){
+        return 0
+    }
+    temp.data = 0
+    return 1
+}
     
-
-
 
 
 
@@ -305,7 +329,9 @@ const res = isPalindrome(head)
 // print(head)
 
 
-head = sort(head)
-print(head)
+// head = sort(head)
+// print(head)
 
+head = addOne(head)
+print(head)
 
