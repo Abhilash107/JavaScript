@@ -296,6 +296,29 @@ function helper(temp){
     temp.data = 0
     return 1
 }
+
+function removeNthNode(head, N){
+    
+    let fast = head
+    let slow = head
+    // fast must be at N
+    for(let i = 0;i<N;i++){ 
+        fast = fast.next
+        // check fast.next === null
+        if(fast.next !== null) {
+            return head.next
+        }
+    }
+    while (fast.next !== null) {
+        fast= fast.next
+        slow = slow.next
+    }
+
+    slow.next = slow.next.next
+    return head
+}
+
+
     
 
 
@@ -332,6 +355,9 @@ const res = isPalindrome(head)
 // head = sort(head)
 // print(head)
 
-head = addOne(head)
+// head = addOne(head)
+// print(head)
+
+head = removeNthNode(head, 5)
 print(head)
 
