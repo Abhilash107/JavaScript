@@ -319,11 +319,48 @@ function removeNthNode(head, N){
 }
 
 
+function sortZerosOnesTwos(head){
+    let zeroHead = new Node(-1)
+    let oneHead = new Node(-1)
+    let twoHead = new Node(-1)
+
+    let zero = zeroHead
+    let one = oneHead
+    let two= twoHead
+
+    let temp = head
+    while(temp !== null){
+        if(temp.data === 1){
+            one.next = temp
+            one = one.next
+        }
+        else if(temp.data === 0){
+            zero.next = temp
+            zero = zero.next
+        }
+        else{
+            two.next = temp
+            two = two.next
+        }
+        temp = temp.next
+    }
+    zero.next = (oneHead.next)?oneHead.next : twoHead.next
+    one.next = twoHead.next 
+    two.next = null
+
+    let newNode = zeroHead.next
+
+    return newNode
+
+}
+
+
     
 
 
 
-let arr = [1, 4, 3, 2, 5]
+//let arr = [1, 4, 3, 2, 5]
+let arr = [0,2,1,2,0,2,1]
 
 let head = create(arr)
 //print(head)
@@ -358,6 +395,9 @@ const res = isPalindrome(head)
 // head = addOne(head)
 // print(head)
 
-head = removeNthNode(head, 5)
+// head = removeNthNode(head, 5)
+// print(head)
+
+head = sortZerosOnesTwos(head)
 print(head)
 
