@@ -6,15 +6,14 @@ const player = {
 }
 
 
-
 //* Object.keys() => Returns an array of a given object's property names 
-console.log(Object.keys(player));
+//? console.log(Object.keys(player));
 
 //* Object.values() => Returns an array of a given object's property values.
-console.log(Object.values(player));
+//? console.log(Object.values(player));
 
 //* Object.entries() => Returns an array of a given object's own enumerable string-keyed property [key, value] pairs. 
-console.log(Object.entries(player));
+//? console.log(Object.entries(player));
 
 
 
@@ -24,21 +23,18 @@ const coach = {
     club: 'FcPorto',
     titles: 'UCL, UEL, laLiga',
 }
-
 const newObj = Object.assign(player, coach)
 //? console.log(newObj);
 
 
 
-
 //*Object.create() => creates an object (empty)
-
 const newObj2 = Object.create(newObj)
 //console.log(newObj2); // empty Object
 newObj2.name = 'gg'
 newObj2.age = 28
 newObj2.club = 'JUV'
-console.log(newObj2);
+//console.log(newObj2);
 
 
 //*Object.freeze() => Freezes an object. A frozen object can no longer be changed
@@ -94,7 +90,50 @@ CreateUser.prototype.setUserName = function(userName) {
 }
 
 const user = new CreateUser('Abhilash', 'wbqwbh@gmai.com', '2d3rt');
-console.log(user);
+// console.log(user);
+
+
+const vehicle = {
+    model: 'sedan',
+    price: '$5500',
+}
+
+
+console.log(vehicle.valueOf());
+console.log(vehicle.toLocaleString());
+console.log(car.hasOwnProperty('model'));
+console.log(Object.getPrototypeOf(vehicle));
+
+//* This method sets the prototype (i.e., the internal [[Prototype]] property) of a specified object to another object or null.
+
+const design = {
+    style(){
+        console.log('Muscle type');
+    }
+}
+
+Object.setPrototypeOf(vehicle, design)
+vehicle.style()
+console.log(Object.getPrototypeOf(design));
+
+//! imp  
+//* Although using __proto__ to get and set prototypes is still common in some codebases, it is deprecated and should be avoided in favor of Object.getPrototypeOf() and Object.setPrototypeOf().
+
+// example
+const animal = {
+    eats: 'meat'
+}
+
+const lion = {
+    jumps: true
+}
+
+lion.__proto__ = animal  //* best practice
+console.log('Lion eats: ',lion.eats);
+
+
+
+
 
 
 
