@@ -24,7 +24,7 @@ const coach = {
     titles: 'UCL, UEL, laLiga',
 }
 const newObj = Object.assign(player, coach)
-//? console.log(newObj);
+console.log(newObj);
 
 
 
@@ -99,10 +99,10 @@ const vehicle = {
 }
 
 
-console.log(vehicle.valueOf());
-console.log(vehicle.toLocaleString());
-console.log(car.hasOwnProperty('model'));
-console.log(Object.getPrototypeOf(vehicle));
+// console.log(vehicle.valueOf());
+// console.log(vehicle.toLocaleString());
+// console.log(car.hasOwnProperty('model')); // boolean
+// console.log(Object.getPrototypeOf(vehicle));
 
 //* This method sets the prototype (i.e., the internal [[Prototype]] property) of a specified object to another object or null.
 
