@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //* Handling Apis  with then and catch
 //? Simple API calls or straightforward asynchronous operations.
 //? When chaining multiple promises.
@@ -44,3 +45,24 @@ handleApi()
 //todo: explore 'The Response interface of the Fetch API'
 
 
+=======
+//* Handling Apis 
+
+
+
+const api = fetch('https://api.github.com/users/hiteshchoudhary')
+.then( (response)=>{
+    // Object to json format
+    return response.json()
+} )
+.then( (data)=>{
+    console.log("All data:\t", data); 
+    //return data.id
+} )
+// .then( (data)=>{
+//     console.log("\nData: ", data);
+// } )
+.catch( (error)=>{
+    console.log('error');
+} )
+>>>>>>> 9a37b72468cc582010d103ecc2571982066009e1
