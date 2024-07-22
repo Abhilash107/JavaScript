@@ -234,8 +234,6 @@ const doubled = arr9.map( (num) => num * 2 )
 const evenNums = arr9.filter((num) => num % 2 === 0 )
 console.log(evenNums);// [ 2, 4 ]
 
-;
-
 
 
 
@@ -258,8 +256,9 @@ const hasEven = arr10.some( (num) => num > 10 )
 const found = arr10.find( (num) => num <= 3 )
 console.log(found);// 1, as it returns the first element
 
+//* find index of find() result
 const index = arr10.findIndex((num) => num <= 3  )
-console.log(index)// find index of find() result
+console.log(index)
 
 
 
