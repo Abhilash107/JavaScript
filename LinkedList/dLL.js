@@ -59,7 +59,6 @@ class main{
         return head
     }
 
-
     deleteKthElement(head, k){
         if(head == null) return null
 
@@ -86,8 +85,7 @@ class main{
         }  
         prev.next = front
         front.back = prev
-        temp.back = temp.next = null
-        
+        temp.back = temp.next = null   
 
         return head
     }
@@ -180,48 +178,50 @@ class main{
         return head
     }
 
-    reverse(head){
-        // Function to reverse a doubly linked list
-function reverseDLL(head) {
-    // Check if the list is empty
-    // or has only one node
-    if (head === null || head.next === null) {
-        // No change is needed;
-        // return the current head
-        return head;
-    }
+    reverseDLL(head) {
+        // Check if the list is empty
+        // or has only one node
+        if (head === null || head.next === null) {
+            // No change is needed;
+            // return the current head
+            return head;
+        }
     
-    // Initialize a pointer to
-    // the previous node
-    let prev = null; 
+        // Initialize a pointer to
+        // the previous node
+        let prev = null; 
     
-    // Initialize a pointer
-    // to the current node
-    let current = head; 
+        // Initialize a pointer
+        // to the current node
+        let current = head; 
 
-    // Traverse the linked list
-    while (current !== null) {
-        // Store a reference to
-        // the next node
-        let next = current.next;
+        // Traverse the linked list
+        while (current !== null) {
+            // Store a reference to
+            // the next node
+            let next = current.next;
 
-        // Swap the previous
-        // and next pointers
-        current.next = prev;
-        current.prev = next;
+            // Swap the previous
+            // and next pointers
+            current.next = prev;
+            current.prev = next;
 
-        // Move to the next node
-        // in the original list
-        prev = current;
-        current = next;
-    }
+            // Move to the next node
+            // in the original list
+            prev = current;
+            current = next;
+        }
 
-    // The final node in the original
-    // list becomes the new head after reversal
-    return prev;
-}
+        // The final node in the original
+        // list becomes the new head after reversal
+        return prev;
+        }
 
-    }
+    // reverse(head){
+    //     // Function to reverse a doubly linked list
+        
+
+    // }
 }
 
 let arr = [1, 2, 3, 4, 5]
@@ -254,7 +254,7 @@ let head = obj.creation(arr)
 // head = obj.insertBeforeNode(head, 68, head.next)
 // obj.print(head)
 
-head = obj.reverse(head)
+head = obj.reverseDLL(head)
 obj.print(head)
 
 
