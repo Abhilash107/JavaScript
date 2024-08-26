@@ -191,23 +191,18 @@ class main{
         // the previous node
         let prev = null; 
     
-        // Initialize a pointer
-        // to the current node
         let current = head; 
 
         // Traverse the linked list
         while (current !== null) {
-            // Store a reference to
-            // the next node
+            // Store a reference to the next node
             let next = current.next;
 
-            // Swap the previous
-            // and next pointers
+            // Swap the previous and next pointers
             current.next = prev;
             current.prev = next;
 
-            // Move to the next node
-            // in the original list
+            // Move to the next node in the original list
             prev = current;
             current = next;
         }
@@ -215,16 +210,100 @@ class main{
         // The final node in the original
         // list becomes the new head after reversal
         return prev;
+    }
+
+    //* imp
+    deleteAllOccurrences(key){
+        if(head === null){
+            return null
+        }
+        
+        let temp = head
+
+        while(temp !== null){
+            if(temp.data === key){
+                // check for head
+                if(temp === head){
+                    head = head.next
+                }
+
+                
+                    let nextNode = temp.next
+                    let prevNode = temp.back
+
+                    if(nextNode) nextNode.back = prevNode 
+                    if(prevNode) prevNode.next = nextNode
+
+                    // update the temp key
+                    temp = nextNode
+                
+            }
+
+            else{
+                temp = temp.next
+            }
+        }
+        return head
+    }
+
+    //* imp (pairs with given sum in sorted DLL)
+    findPairsWithGivenSum(head, target) {
+        if(head === null){
+            return null
+        }
+        let p1 = head 
+        let p2 = head;
+
+        while(p2.next !== null){
+            p2 = p2.next
         }
 
-    // reverse(head){
-    //     // Function to reverse a doubly linked list
-        
+        let pairs = [];
+        while(p2.data > p1.data){
+            
+            if(p1.data + p2.data === target){
+                pairs.push([p1.data, p2.data])
+                p1 = p1.next
+                p2 = p2.back
+            }
+            else if(p1.data + p2.data < target){
+                p1 = p1.next
+            }
+            else{
+                p2 = p2.back
+            }
+        }
 
-    // }
+        if(!pairs.length) return "No pairs found"
+        
+        else return pairs
+        
+        //return pairs? null:""
+    }
+
+    //* imp (remove all duplicates from sorted DLL)
+    removeDuplicates(head) {
+        if(head === null) return null
+
+        let temp = head
+
+        while(temp !== null && temp.next !== null){
+
+            let newNode = temp.next
+
+            while(newNode !== null && newNode.data === temp.data){
+                newNode = newNode.next
+            }  
+
+            temp.next = newNode
+            if(newNode) newNode.back = temp
+            temp = temp.next// iteration
+        }
+        return head
+    }
 }
 
-let arr = [1, 2, 3, 4, 5]
+let arr = [1, 2, 3, 4, 4, 5,5,5,5,5,5]
 const obj = new main()
 let head = obj.creation(arr)
 //obj.print(head)
@@ -254,8 +333,19 @@ let head = obj.creation(arr)
 // head = obj.insertBeforeNode(head, 68, head.next)
 // obj.print(head)
 
-head = obj.reverseDLL(head)
-obj.print(head)
+// head = obj.reverseDLL(head)
+// obj.print(head)
 
+
+// head = obj.deleteAllOccurrences(5)
+// obj.print(head)
+
+
+
+// const result = obj.findPairsWithGivenSum(head, 8)
+// console.log(result);
+
+head = obj.removeDuplicates(head)
+obj.print(head)
 
 
