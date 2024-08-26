@@ -7,20 +7,20 @@ class Stack{
     }
 
     push(element){
-        if(this.top > this.size) return "Stack is full"
-        this.top++
-        this.stack[this.top] = element
+        if(this.top >= this.size -1) return "Stack is full"
+        
+        this.stack[++this.top] = element
     }
 
-    top(){
-        if(top === -1) return "Stack is empty"
+    topElement(){
+        if(this.top === -1) return "Stack is empty"
 
         return this.stack[this.top]
     }
 
     pop(){
         if(this.top === -1) return "Stack is empty" 
-        this.top--
+        return this.stack[this.top--]
     }
 
     size(){
@@ -38,9 +38,11 @@ class Stack{
 const arr = []
 const obj = new Stack()
 obj.push(1)
-obj.pop()
+let value = obj.pop()
 obj.push(2)
 obj.push(3)
 
 obj.print()
+console.log("Popped element: ",value);
+
 
