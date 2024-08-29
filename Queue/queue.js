@@ -39,7 +39,6 @@ class Queue{
         //update the size
         this.currentSize -= 1
         return data
-
     }
 
     top(){
@@ -75,8 +74,6 @@ obj.pop()
 
 const value = obj.top()
 console.log("Top: ",value);
-
-
 
 
 obj.display()
