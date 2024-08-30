@@ -8,8 +8,8 @@ class Node{
 class Stack {
     constructor(){
         //using LL
-        this.top = this.top
-        this.size = size
+        this.top = null
+        this.size = 0
 
     }
 
@@ -31,6 +31,34 @@ class Stack {
         let temp = this.top
         this.top = this.top.next
         this.size -= 1
+        return temp.data
+    }
+
+    size(){
+        return this.size
+    }
+
+    display(){
+        let temp = this.top
+
+        while(temp){
+            console.log(temp.data)
+            temp = temp.next
+            
+        }
     }
     
 }
+
+const obj = new Stack()
+obj.push(10)
+obj.push(20)
+obj.push(30)
+obj.push(40)
+obj.push(50)
+
+
+const data = obj.pop()
+
+console.log("Popped Value: ",data);
+obj.display()
