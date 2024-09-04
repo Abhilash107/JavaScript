@@ -48,7 +48,6 @@ class QueueUsingStacks {
 
     print(){
         console.log(this.stack1);
-        
     }
 }
 
