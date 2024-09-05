@@ -20,7 +20,6 @@ function monotonic(array){
         else  newArray[i] = stack[stack.length-1]
 
         stack.push(array[i])
-
        
     }
     return newArray
