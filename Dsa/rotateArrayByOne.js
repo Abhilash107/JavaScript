@@ -1,8 +1,9 @@
 let arr = [1,2,3,4,5,6]
-// rotateByOne(arr)
-rotateByDthPlaces(arr, 5, arr.length)
-console.log(arr);
 
+rotateByOne(arr)
+
+//Print the array
+console.log(arr)
 
 function rotateByOne(array){
     const temp = array[0]
@@ -11,6 +12,34 @@ function rotateByOne(array){
     }
     array[array.length -1] = temp
 }
+
+//* Time Complexity: O(n)
+//* Space Complexity: O(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function rev(arr, s, e){
+    while(s<=e){
+        let temp = arr[s]
+        arr[s] = arr[e]
+        arr[e]= temp
+        s++
+        e--
+    }
+}
+
+
 
 function rotateByDthPlaces(arr, d, n){
     //* Brute force
@@ -37,14 +66,4 @@ function rotateByDthPlaces(arr, d, n){
     rev(arr, d, n-1)
     rev(arr, 0, n-1)
 
-}
-
-function rev(arr, s, e){
-    while(s<=e){
-        let temp = arr[s]
-        arr[s] = arr[e]
-        arr[e]= temp
-        s++
-        e--
-    }
 }

@@ -1,5 +1,7 @@
 let arr = [1,1,2,3]
+
 //* in this pattern otherwise we can use Set
+
 console.log(removeDuplicate(arr));
 
 
