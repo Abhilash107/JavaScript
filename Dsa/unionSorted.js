@@ -34,14 +34,14 @@ function unionSort(num1, num2){
     if(num3.length == 0 || num3[num3.length-1] != num1[i]){
         num3.push(num1[i]) 
     }
-     i++
+    i++
    }
 
    while(j<l2){
     if(num3.length == 0 || num3[num3.length-1] != num2[j]){
         num3.push(num2[j])
-        
     }
+    
     j++
    }
 
