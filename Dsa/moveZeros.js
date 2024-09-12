@@ -5,7 +5,7 @@ console.log(arr);
 
 function moveZeroToEnd(arr){
     let i = -1;
-    //* getting the first occurance of Zero
+    //* getting the first occurrence of Zero
     for(let j=0;j<arr.length;j++){
         if(arr[j] == 0){
             i = j

@@ -1,5 +1,5 @@
 let arr = [1,2,3,4]
-const res = upperBound(arr, 1)
+const res = upperBound(arr, 4)
 console.log(res);
 
 
