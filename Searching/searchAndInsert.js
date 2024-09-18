@@ -1,4 +1,4 @@
-//? Same aa lower bound 
+//? Same as lower bound 
 
 const arr = [1, 2, 3, 3, 5, 5, 6, 7]
 const res = findAndInsert(arr, 4)
