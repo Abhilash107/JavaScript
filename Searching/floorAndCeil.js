@@ -1,4 +1,3 @@
-
 const arr = [1, 2, 3, 3, 4, 5, 5, 6, 7]
 const res = [findCeiling(arr, 2), findFloor(arr, 2) ]
 
