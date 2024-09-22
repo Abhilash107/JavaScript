@@ -1,33 +1,31 @@
-console.log(onesCompliment(5));
-console.log(twosCompliment(5));
+console.log(decimalToBinary(10));
 
 
-function onesCompliment(num){
-    let binary = num.toString(2)
-    let res = ''
+function binaryToDecimal(str){
+    let pow = 1;
+    let res = 0;
 
-    for (let bit of binary){
-        res += bit === "0" ? "1": '0'
+    for(let i = str.length -1; i >= 0; i-- ){
+        res += str[i] === '1' ? pow : 0;
+        pow *= 2;
     }
 
-    //return parseInt(res, 2)
     return res
+
 }
 
-function twosCompliment(num){
-    let binary = num.toString(2)
+
+function decimalToBinary(num){
     let res = ''
-    let flag = true
+    let temp = num
 
-    for (let i =binary.length-1; i >= 0;i--){
+    while(temp >= 1){
 
-        if(flag) {
-            res = '1' 
-            flag = false
-        }
+        res += temp % 2;
 
-        res = binary[i] === '1' ? '0' : '1' + res
+        temp = Math.floor(temp / 2)
     }
-    //return parseInt(res, 2)
-    return res
+
+    return res.split('').reverse().join('');
+
 }
