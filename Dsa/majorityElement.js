@@ -27,7 +27,7 @@ function majority(arr){
 
 
 function MVAlgorithm(arr){
-    //Moores's Voting Algorithm
+    //Moore's Voting Algorithm
     let c =0
     let element
 
