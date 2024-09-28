@@ -1,5 +1,5 @@
 let arr = [3,1,-2,-5,2,-4]
-let newArr = arrangingArray(arr)
+let newArr = changeInArray(arr)
 console.log(newArr);
 
 
@@ -20,3 +20,4 @@ function arrangingArray(arr){
     }
     return newArr
 }
+
