@@ -1,5 +1,5 @@
 let s= "2"
-console.log(convert("-01s337c0d3"));
+console.log(convertOptimal("-01s337c0d3"));
 
 
 
@@ -31,14 +31,31 @@ function convert(s){
     return isNaN(parseInt(ans)) ? 0 : parseInt(ans);
 }
 
-function convert(s){
+function convertOptimal(s){
 
-    let ans = ''
-    let negativeStatus = false
+    s= s.trim()
+    if (isNaN(parseInt(s))) return 0;
 
-    for (let i = 0; i < array.length; i++) {
+    let ans = ""
+
+    for (let i = 0; i < s.length; i++) {
+
+        if(i === 0 && (s[i] === '-' || s[i] === '+')){
+            ans+= s[i]
+            continue
+        }
         
+        if (!isNaN(Number(s[i])) && s[i] !== ' ') {
+            ans += s[i]; 
+        } else {
+            break;  
+        }
     }
+
+    if( parseInt(ans) > 2147483647  ) return 2147483647
+    if( parseInt(ans) < -2147483648  ) return -2147483648
+
+    return parseInt(ans)
    
 }
 
