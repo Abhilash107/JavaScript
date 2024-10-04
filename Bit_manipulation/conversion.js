@@ -1,4 +1,4 @@
-console.log(decimalToBinary(10));
+console.log(decimalToBinaryStr("001"));
 
 
 function binaryToDecimal(str){
@@ -19,6 +19,20 @@ function decimalToBinary(num){
     let res = ''
     let temp = num
 
+    while(temp >= 1){
+
+        res += temp % 2;
+
+        temp = Math.floor(temp / 2)
+    }
+
+    return res.split('').reverse().join('');
+
+}
+
+function decimalToBinaryStr(str){
+    let res = ''
+    let temp = parseInt(str)
     while(temp >= 1){
 
         res += temp % 2;
