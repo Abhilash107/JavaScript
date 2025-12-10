@@ -1,0 +1,173 @@
+var a = 20
+let b = 30
+const c = 40
+
+let age = 23
+const res = age > 18 ? "Adult" : "Minor"
+// console.log(res);
+
+//&Datatype
+// 1. Primitive (Stored by Value)
+let num1 = 10.3, num2 = 20
+//console.log(num1, num2);
+
+let x;//undefined
+let y = null// null
+
+const bigInt = 123n//bigInt
+
+let sym = Symbol("id")
+
+// 2. Non-Primitive (Stored by Reference)
+//object
+const obj = {
+    name: "A",
+    "a" : a// a= 20
+}
+
+//console.log(obj);//{ name: 'A', a: 20 }
+
+//&Array
+const arr1 = [1,2,3,4]
+arr1[0] = 9
+//console.log(arr1);//[9,2,3,4]
+
+//&Functions
+function foo(){
+    return 'Hello';
+}
+//console.log(foo());
+
+const add = function(a, b){
+    return a + b
+}
+// console.log(add());//Nan
+// console.log(add(2, 3));//5
+
+//Arrow back function
+const add2 = (a, b)=> a + b;
+
+//anonymous function
+// setTimeout(function() {
+//     console.log("Hello");
+// }, 1000);
+
+
+// *imp
+const obj2 = {
+    fn1 : foo(),
+    fn2: add(1,2)
+}
+//console.log(obj2);//{ fn1: 'Hello', fn2: 3 }
+
+//Add a semicolon BEFORE the IIFE:
+
+;(function(){
+    console.log('Runs immediately');   
+})();
+
+//&Control statements
+
+if(10 < 'j')
+    console.log('hehe');
+else
+    console.log('Nope');
+// In JavaScript, when you use a relational operator (<, >, <=, >=) between different data types, JavaScript performs type coercion to numbers.   
+
+// So internally, this happens:
+
+// 1️⃣ 'j' is converted to a number
+// Number('j') → NaN
+
+
+// Because 'j' is not a numeric string, it becomes:
+
+// NaN (Not a Number)
+
+// 2️⃣ Now the comparison becomes:
+// 10 < NaN
+
+//! 3️⃣ Any comparison with NaN is ALWAYS false
+
+// This is a strict JavaScript rule:
+
+// 10 < NaN     → false
+// 10 > NaN     → false
+// 10 == NaN    → false
+// NaN == NaN   → false
+
+//&Loops
+
+// for(let i = 0;i < 10;i++)console.log(i);
+
+// let j = 1
+// while (j != 10) {
+//     console.log(j++);
+// }
+
+//Arrays & Objects
+let arr = [1,2,3,4]
+
+arr.push(5)
+//console.log(arr)
+
+//console.log(arr.length);
+
+arr.pop()
+//console.log(arr)
+
+arr.unshift(10); // [10,1,2,3,4,5]
+//console.log(arr)
+
+arr.shift(); // [1,2,3,4,5]
+//console.log(arr)
+
+//* imp
+arr.length = 0// empties the array
+//console.log(arr)
+
+
+arr = [1,2,3,4,5]
+console.log(arr)
+
+//*imp
+console.log(arr.slice(1,3));//[2, 3]
+//Does NOT modify original , returns new arr
+// extracts index 1 to 2
+
+
+//arr.splice(1, 2)//Removes 2 elements from index 1
+// Modifies original
+//console.log(arr)//[ 1, 4, 5 ]
+
+console.log(arr.indexOf(3));//2
+
+console.log(arr.includes(4));// true / false
+
+console.log(arr.find(x => x > 4))//retunr thr first true value
+console.log(arr.find(x => x > 9))//undefined if not found
+
+//Transformation Methods (VERY IMPORTANT)
+
+//map() => Modifies EACH element (returns new array)
+const newArr = arr.map(x => x * 2)
+console.log(newArr);
+
+//filter() -> Keeps matching values
+const even = arr.filter(x => x % 2 === 0);
+
+//reduce() → Combines all values into one
+const sum = arr.reduce((acc, cur) => acc + cur, 0);
+
+
+
+
+
+
+
+
+
+
+
+   
+
