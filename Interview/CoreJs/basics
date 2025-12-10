@@ -159,6 +159,58 @@ const even = arr.filter(x => x % 2 === 0);
 //reduce() → Combines all values into one
 const sum = arr.reduce((acc, cur) => acc + cur, 0);
 
+//Sorting
+arr.sort()//lexical sort
+//console.log(arr);
+
+arr.sort((a, b) => a - b)//ascending
+//console.log(arr);
+arr.sort((a, b) => b - a)//descending
+//console.log(arr);
+
+//reverse
+arr.reverse()
+
+//Joining & Splitting
+let newStr = arr.join("-")//into a string
+console.log(typeof newStr);
+
+const newArr1 = "a,b,c".split(",");
+console.log(newArr1);//[ 'a', 'b', 'c' ]
+
+//Concatenation & Copy
+
+const newArr2 = newArr1.concat([10, 20])
+console.log(newArr2);//[ 'a', 'b', 'c', 10, 20 ]
+
+const copy = [...newArr2]
+console.log(copy);
+copy[0] = 9
+console.log(copy, newArr2);//[ 9, 'b', 'c', 10, 20 ] [ 'a', 'b', 'c', 10, 20 ]
+// no change in parent 
+
+// Checking Array Type
+console.log(Array.isArray(arr));
+
+
+let newArr3 = Array.from("ABC");   // ["A","B","C"]
+console.log(newArr3);
+
+
+//delete arr[2]; // Leaves undefined hole
+
+//Use splice() instead.
+
+
+
+//^ Objects
+
+
+
+
+
+
+
 
 
 
