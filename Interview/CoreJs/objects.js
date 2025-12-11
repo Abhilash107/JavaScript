@@ -108,23 +108,76 @@ console.log(user.address.city);
 //* Optional Chaining (Safe Access)
 // Prevents errors if a property does not exist.
 // If property missing → returns undefined instead of crashing.
-console.log(user?.address?.city);
-console.log(user?.address?.age);//undefined
+//console.log(user?.address?.city);
+//console.log(user?.address?.age);//undefined
 
 
 const newUser = {
     name: "Abhilash",
     age: 23
 };
+
 //^ Object Destructuring
 const {name, age} = newUser;
-console.log(name, age);//Abhilash 23
+//console.log(name, age);//Abhilash 23
 
 //rename key
 const { name: fullName } = newUser;
-console.log(fullName, age);//Abhilash 23
+//console.log(fullName, age);//Abhilash 23
 
-//^ Object methods 12 GPT
+//^ Object methods
+const obj2 = {
+    name: 'Abhi',
+    greet(){
+        console.log("Hello "+ this.name);
+    }
+}
+
+//obj2.greet();
+
+//^ The 'this' Keyword
+
+const obj3 = {
+    x: 10,
+    show(){
+        // console.log(x);
+        console.log(this.x);
+
+    }
+}
+
+//obj3.show();//10
+
+//^ Object.freeze() & Object.seal()
+//Prevent any change
+Object.freeze(obj3)
+obj3.x = 20;
+//console.log(obj3);//{ x: 10, show: [Function: show] }
+
+
+//Allow update but no adding/removing keys
+Object.seal(obj3);
+obj3.city = 'Bbsr'
+//console.log(obj3);//{ x: 10, show: [Function: show] }
+
+//^ Convert Object to JSON & Back
+const json = JSON.stringify(obj);
+//console.log(json);
+const back = JSON.parse(json);
+//console.log(back);
+
+
+
+// Convert Object to Array
+
+//value
+const values = Object.values(obj3)
+//console.log(values);
+const keys = Object.keys(obj3)
+//console.log(keys);
+const entries = Object.entries(obj3)
+//console.log(entries);
+
 
 
 
